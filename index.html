@@ -1,75 +1,98 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no,
-	initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/estilos.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<title>Desarrollo Web | Jorge Cortés</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/resume.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <script src="https://use.fontawesome.com/0d6e13b87e.js"></script>
+  <title>Jorge Cortés - Front-end Development</title>
 </head>
 <body>
-	<div class="contenedor" id="contenedor">
-		<section class="tarjeta">
-			<div class="slider_banner">
-				<div class="banner" id="banner">
-					<img class="slide active" src="img/banner.jpg" alt="">
-					<img class="slide" src="img/banner2.jpg" alt="">
-					<img class="slide" src="img/banner3.jpg" alt="">
-					<img class="slide" src="img/banner4.jpg" alt="">
-				</div>
+  <div class="main_content">
+    <header class="header_content">
+    </header>
 
-				<!-- Flechas del Banner -->
-				<a href="#" id="banner-prev" class="flecha-banner anterior"><span class="fa fa-chevron-left"></span></a>
-				<a href="#" id="banner-next" class="flecha-banner siguiente"><span class="fa fa-chevron-right"></span></a>
-			</div>
+    <nav class="navigation_content">
+      <div class="profile_card">
+        <div class="profile_img">
+          <img src="img/image.png" alt="Jorge">
+        </div>
+      </div>
+      <ul class="menu">
+        <li><a href="#about_me"><i class="icon fa fa-user-circle"></i>About me</a></li>
+        <li><a href="#experience"><i class="icon fa fa-briefcase"></i>Experience</a></li>
+        <li><a href="#education"><i class="icon fa fa-graduation-cap"></i>Education</a></li>
+        <li><a href="#skill"><i class="icon fa fa-grav"></i>Skills</a></li>
+      </ul>
+    </nav>
 
-			<section class="slider_info">
-				<!-- Flechas del Slider -->
-				<a href="#" id="info-prev" class="flecha-info anterior" ><span class="fa fa-chevron-left"></span></a>
-				<a href="#" id="info-next" class="flecha-info siguiente"><span class="fa fa-chevron-right"></span></a>
+    <main class="principal_content">
+      <section class="about_me" id="about_me">
+        <h1>Hello, I am <span>Jorge</span><br> Web Designer and Front-end</h1>
+        <div class="separator_light"></div>
+        <p>I have two years experience as a web/interface designer.
+           I have a love of clean, elegant styling, and I have lots of experience in the
+           production of CSS and HTML<br> for websites.
+        </p>
+        <p>I have a reasonable grasp of using CMS, specifically Joomla and WordPress.<br>
+           Futhermore I have experience using JS libraries and writing JS code.
+        </p>
+        <h2>Personal Info</h2>
+        <div class="separator_bold"></div>
+        <ul class="personal_info">
+          <li><em>Name</em><span>Jorge Cortés Álvarez</span></li>
+          <li><em>Date of Birth</em><span>May 26, 1993</span></li>
+          <li><em>e-mail</em><span>jorgecortesalvarez@outlook.com</span></li>
+          <li><em>Phone</em><span>(+57) 300 433 8040</span></li>
+          <li><em>Address</em><span>Cartagena de Indias - Colombia</span></li>
+        </ul>
+      </section>
 
-				<section class="informacion" id="informacion">
-					<article id="info">
-						<div class="slide active">
-							<h1 class="nombre">Jorge Cortés Álvarez</h1>
-							<p class="trabajo">Desarrollador Web (Junior)</p>
-							<p class="pais"><img src="img/bandera.png" alt="">Cartagena de Indias (Colombia) </p>
-						</div>
+      <section class="experience" id="experience">
+        <h2>Work</h2>
+        <div class="separator_bold"></div>
+        <h3>Platform Administrator OJS</h3>
+        <h4><i class="fa fa-thumb-tack"></i>Palobra Journal - University of Cartagena <br>
+            <i class="fa fa-calendar"></i>2015 - 2016</h4>
+        <p>Customization of the user's interface, configuration and support
+          of the platform Open Journal Systems (OJS) for the virtual publication
+          of the Palobra Journal in the University of Cartagena.
+        </p>
 
-						<div class="slide">
-							<h2 class="subtitulo">Perfil profesional</h2>
-							<p class="texto">Soy Ingeniero de Sistemas, tengo conocimientos relacionados con la maquetación y elaboración
-								de interfaces de usuario para sitios web.
-							<br></br>
-							Mis principales aptitudes son el diseño y desarrollo front-end para aplicativos web con HTML5, CSS3 y JavaScript.
-							</p>
-							 <br></br>
+        <h3>Front-end Web Developer</h3>
+        <h4><i class="fa fa-thumb-tack"></i>Freelance/Self-Employed <br>
+            <i class="fa fa-calendar"></i>2014 - Today</h4>
+        <p>Experience in the design and development of web sites using
+          techonologies as HMTL5, CSS3, JS and content management systems
+          as Joomla and WordPress.
+        </p>
+      </section>
 
-						</div>
+      <section class="education" id="education">
+        <h2>Studies</h2>
+        <div class="separator_bold"></div>
+        <h3>Systems Engineer</h3>
+        <h4><i class="fa fa-graduation-cap"></i>Bachelor's degree - University of Cartagena <br>
+            <i class="fa fa-calendar"></i>2016</h4>
+        <p></p>
+        <h3>Secondary Education</h3>
+        <h4><i class="fa fa-graduation-cap"></i>High School degree - Institute Promoción Social <br>
+            <i class="fa fa-calendar"></i>2009</h4>
+      </section>
+      <section class="skill">
+        <h2>Habilities</h2>
+        <div class="separator_bold"></div>
 
-						<div class="slide">
-							<h2 class="subtitulo">Contáctame</h2>
-							<p class="texto">Puedes escribirme al correo electrónico: jorgecortesalvarez@outlook.com
-							<br><br>
-							También puedes llamarme al teléfono (+57) 300 433 8040.</p>
-						</div>
-					</article>
-					<div class="botones" id="botones"></div>
-				</section>
-
-			</section>
-			<section class="redes-sociales">
-				<a href="https://co.linkedin.com/in/jorgecortesalvarez" class="linkedin" target="_blank"><span class="fa fa-linkedin"></span></a>
-				<a href="https://twitter.com/jorgecortesr" class="twitter" target="_blank"><span class="fa fa-twitter"></span></a>
-				<a href="https://instagram.com/jorgecortesalvarez" class="instagram" target="_blank"><span class="fa fa-instagram"></span></a>
-				<a href="https://github.com/jorgecortesalvarez/" class="github" target="_blank"><span class="fa fa-github"></span></a>
-			</section>
-		</section>
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-	<script src="js/main.js"></script>
+      </section>
+    </main>
+    <div class="social_media">
+      <p>© 2017 Jorge Cortés Álvarez. All Rights Reserved. </p>
+      <a href="https://www.instagram.com/jorgecortesalvarez/" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://twitter.com/JorgeCortesR" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/jorgecortesalvarez/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    </div>
+  </div>
 </body>
 </html>
