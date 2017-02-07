@@ -152,11 +152,12 @@ p {
   box-sizing: inherit;
   display: block;
   height: 100%;
-  padding: 1.25rem 1.875rem 0.937rem;
+  padding: 1.75rem 1.875rem 0.937rem;
   overflow-y: scroll;
 }
 
-.principal_content .about_me {
+.principal_content .about_me, .principal_content .experience,
+.principal_content .education, .principal_content .skill {
   display: block;
   height: 100%;
 }
@@ -227,12 +228,13 @@ p {
   background-color: #F6F6F6;
   border-left: 1px solid #EDEDED;
 }
-
+/*
 .principal_content .experience, .principal_content .education,
 .principal_content .skill {
   display: block;
+  height: 100%;
 }
-
+*/
 .experience h3, .education h3 {
   font-weight: 200;
   padding: 1rem 0 0.3rem 0;
@@ -278,4 +280,39 @@ p {
 .social_media a:hover {
   color: #000;
   transition: color 0.3s;
+}
+
+/*---------------- SKILLS ----------------*/
+
+.skill ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill ul li {
+  list-style: none;
+  margin-bottom: 2px;
+}
+
+.skill ul li p {
+  font-size: 13px;
+  color: #9a9a9a;
+  margin-bottom: 1px;
+}
+
+.skill_bar {
+  height: 20px;
+  display: table;
+  width: 100%;
+  border: 1px solid #EDEDED;
+  position: relative;
+}
+
+.skill_bar span {
+  background-color: #FFD42D;
+  heigth: 20px;
+  display table;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
