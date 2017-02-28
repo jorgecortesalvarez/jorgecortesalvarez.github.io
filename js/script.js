@@ -14,4 +14,12 @@ $(document).ready(function() {
       var sectionID = $(this).attr("data-id");
       scrollToID('#' + sectionID, 750);
     });
+
+    //anchor active function
+    /*
+    $('.active').on('click', function(){
+      $('.active').removeClass('active_navigation');
+      $(this).addClass('active_navigation');
+    });*/
+
 });

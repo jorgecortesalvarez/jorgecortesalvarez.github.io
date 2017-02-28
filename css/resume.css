@@ -119,6 +119,11 @@ p {
     color: #2B373B;
 }
 
+/*.active_navigation {
+  background-color: #FFD42D;
+  color: #2B373B;
+}*/
+
 .navigation_content li a::before {
   content: "";
   position: absolute;
