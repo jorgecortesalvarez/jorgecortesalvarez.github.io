@@ -1,0 +1,39 @@
+//Mixins
+
+@mixin transition {
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+      -ms-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@mixin responsive($device) {
+  $breakpoint-xs: 320px;
+  $breakpoint-sm: 768px;
+  $breakpoint-md: 1024px;
+  $breakpoint-lg: 1360px;
+
+  @if $device == phone {
+    @media only screen and (max-width: $breakpoint-xs){
+      @content;
+    }
+  }
+  @else if $device == tablet {
+    @media only screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md){
+      @content;
+    }
+  }
+  @else if $device == desktop {
+    @media only screen and (min-width: $breakpoint-lg){
+      @content;
+    }
+  }
+
+}

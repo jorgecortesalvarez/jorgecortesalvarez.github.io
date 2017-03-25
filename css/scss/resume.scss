@@ -1,45 +1,75 @@
-/*------------- GLOBAL STYLES ------------------*/
+/* GLOBAL STYLES */
+@import "_mixin.scss";
 
-body {
-  width: 100%;
-  height: 100%;
-  background-color: #D9DBDD;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;;
-  line-height: 1.2rem;
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  body {
+    width: 100%;
+    height: 100%;
+    background-color: #D9DBDD;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;;
+    line-height: 1.2rem;
+    padding: 0;
+    margin: 0;
+    @include box-sizing;
+    @include responsive(phone) {
+      font-size: 16px;
+      line-height: 1rem;
+    }
+  }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4 {
     font-family: 'Open Sans', sans-serif, arial;
     color: #646064;
     font-weight: 300;
     margin: 0;
   }
 
-  p {
+  %h2 {
+    font-weight: 200;
+    font-size: 1.5rem;
+    border-top: 1px solid #D9DBDD;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  %h3 {
+    font-weight: 200;
+    padding: 1rem 0 0.3rem 0;
+    color: #484848;
+  }
+
+  %h4i {
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+    color: #9B9B9B;
+  }
+
+  p, %p {
     font-size: 1rem;
     font-weight: 400;
     color: #828282;
     line-height: 1.5rem;
   }
-}
+
 
 /* MAIN CONTAINER */
-.main_content {
-  box-sizing: inherit;
-  width: 61rem;
-  height: 38.4rem;
-  margin: 6rem auto;
-  background-color: #FFF;
-  position: relative;
-  padding-left: 18rem;
-  -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
+  .main_content {
+    @include box-sizing;
+    width: 61rem;
+    height: 38.4rem;
+    margin: 6rem auto;
+    background-color: #FFF;
+    position: relative;
+    padding-left: 18rem;
+    @include responsive(phone) {
+      @include box-sizing;
+      width: 93%;
+      height: 26rem;
+      margin: 1rem auto;
+      padding: 0;
+      //padding: 6rem 0 00;
+      position: static;
+    }
   }
 
   /* NAV CONTAINER/MENU */
@@ -51,132 +81,226 @@ body {
     background-color: #2B373B;
     padding: 0;
     margin: 0;
+    @include responsive(phone) {
+      width: 100%;
+      height: auto;
+      position: static;
+      //position: absolute;
+      //top: 0;
+    }
+  }
 
-    .profile_card {
-      /*PROFILE PHOTO*/
+  .profile_card {
+    /*PROFILE PHOTO*/
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    background-image: url(../img/profile-bg.jpg);
+    background-repeat: no-repeat;
+    border-top: 2px solid #2B373B;
+    @include responsive(phone) {
+      //position: absolute;
+      position: static;
+      width: 100%;
+      height: 7rem;
+      border-top: none;
+    }
+
+    %profile_circle{
       position: absolute;
-      width: 18rem;
-      height: 18rem;
-      background-image: url(../img/profile-bg.jpg);
-      background-repeat: no-repeat;
-      border-top: 2px solid #2B373B;
+      border-radius: 50%;
+      top: 0; left: 0; bottom: 0; right: 0;
+      margin: auto;
+      vertical-align: middle;
+    }
 
-      .profile_img {
-        position: absolute;
-        width: 9rem;
-        height: 9rem;
+    .profile_img {
+      @extend %profile_circle;
+      width: 9rem;
+      height: 9rem;
+      background-color: rgba(43, 55, 59, 0.5);
+      @include responsive(phone) {
+        //display: none;
         border-radius: 50%;
+        margin: 2.3rem auto;
+        width: 5rem;
+        height: 5rem;
         background-color: rgba(43, 55, 59, 0.5);
-        top: 0; left: 0; bottom: 0; right: 0;
-        margin: auto;
-        vertical-align: middle;
 
-        img{
-          position: absolute;
-          width: 8rem;
-          height: 8rem;
+      }
+
+      img {
+        @extend %profile_circle;
+        width: 8rem;
+        height: 8rem;
+        @include responsive(phone) {
+          //display: none
           border-radius: 50%;
-          top: 0; left: 0; bottom: 0; right: 0;
-          margin: auto;
-          vertical-align: middle;
+          margin: auto auto;
+          width: 4rem;
+          height: 4rem;
         }
       }
     }
+  }
 
-    .menu{
-      /*MENÚ CONTAINER*/
-      position: absolute;
-      width: 100%;
-      padding: 0;
-      margin-top: 17rem;
+  .menu{
+    /*MENÚ CONTAINER*/
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    margin-top: 17rem;
+    @include responsive(phone) {
+      position: static;
+      //
+      //margin-top: 7rem;
+      margin-top: 0;
+      text-align: center;
+      font-size: 0rem;
+    }
 
-      li{
+    li{
+      display: block;
+      background-color: #2B373B;
+      border-bottom: 1px solid #222B2E;
+      list-style-type: none;
+      @include responsive(phone) {
+        display: inline-block;
+        width: auto;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        @include responsive(phone) {
+          border-bottom: 1px solid #222B2E;
+        }
+      }
+
+      a {
+        @include box-sizing;
+        padding: 1.5rem 1.6rem;
         display: block;
-        background-color: #2B373B;
-        border-bottom: 1px solid #222B2E;
-        list-style-type: none;
-
-        &:last-child {
-          border-bottom: none;
+        text-align: right;
+        font-size: 1.1rem;
+        color: #D1D1D1;
+        text-decoration: none;
+        z-index: 0;
+        position: relative;
+        @include responsive(phone) {
+          height: 3rem;
+          width: 4.65rem;
+          padding: 0;
+          display: inline-block;
+          text-align: center;
+          //Ocultar el texto;
+          font-size: 0rem;
+          color: transparent;
+          line-height: 0rem;
         }
 
-        a {
-          box-sizing: inherit;
-          padding: 1.5rem 1.6rem;
-          display: block;
-          text-align: right;
-          font-size: 1.1rem;
-          color: #D1D1D1;
-          text-decoration: none;
-          z-index: 0;
-          position: relative;
-
-          &:hover {
-              color: #2B373B;
-          }
-
-          &::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background-color: #FFD42D;
-            width: 0%;
+        &:hover {
             color: #2B373B;
-            -webkit-box-transition: all .3s ease-in-out;
-               -moz-box-transition: all .3s ease-in-out;
-                        transition: all .3s ease-in-out;
-          }
+            //font-size: 1rem;
+        }
 
-          &:hover::before {
-            content: '';
-            width: 100%;
-            -webkit-transition: all .3s ease-in-out;
-               -moz-transition: all .3s ease-in-out;
-                        transition: all .3s ease-in-out;
-          }
-          i {
-            font-size: 1.2rem;
-            float: right;
-            margin-left: 1.1rem;
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 0; left: 0; bottom: 0; right: 0;
+          background-color: #FFD42D;
+          width: 0%;
+          color: #2B373B;
+          @include transition;
+        }
+
+        &:hover::before {
+          content: '';
+          width: 100%;
+          @include transition;
+        }
+
+        i {
+          font-size: 1.2rem;
+          float: right;
+          margin-left: 1.1rem;
+          @include responsive(phone) {
+            float: none;
+            margin: .9rem auto;
+            color: #FFF;
+            &:hover {
+              color: #2B373B;
+            }
           }
         }
       }
     }
   }
 
-/* PRINCIPAL CONTAINER */
-.principal_content {
-  box-sizing: inherit;
-  display: block;
-  height: 100%;
-  padding: 1.75rem 1.875rem 0.937rem;
-  overflow-y: scroll;
+  /* PRINCIPAL CONTAINER */
+  .principal_content {
+    @include box-sizing;
+    display: block;
+    height: 100%;
+    padding: 1.75rem 1.875rem 0.937rem;
+    overflow-y: scroll;
+    @include responsive(phone) {
+      padding: 1.5rem 1.875rem 0.937rem;
+      overflow-y: scroll;
+      height: 15.875rem;
+    }
+  }
 
   .about_me {
     /*ABOUT ME CONTAINER*/
+    //position: relative;
     display: block;
     height: 100%;
+    @include responsive(phone) {
+      display: block;
+      height: 29.5rem;
+    }
     h1 {
       font-size: 2rem;
       font-style: normal;
       line-height: 2.5rem;
+      @include responsive(phone) {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
       span {
         color: #000;
         font-weight: bold;
       }
     }
     h2 {
-      font-weight: 200;
-      font-size: 1.5rem;
-      border-top: 1px solid #D9DBDD;
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
+      @extend %h2;
+      @include responsive(phone) {
+        font-size: 1.3rem;
+      }
+    }
+    p {
+      @extend %p;
+      @include responsive(phone) {
+        font-size: .85rem;
+        line-height: 1rem;
+      }
+      br {
+        display: none;
+      }
     }
 
     .personal_info{
       list-style: none;
       padding: 0;
+      @include responsive(phone){
+        height: auto;
+      }
+      .hide {
+        @include responsive(phone) {
+          display: none;
+        }
+      }
       li {
         float: left;
         list-style: none;
@@ -184,6 +308,13 @@ body {
         margin-bottom: 1rem;
         height: 2.68rem;
         border: 1px solid #EDEDED;
+        @include responsive(phone) {
+          height: 100%;
+          .mails {
+            display: none;
+          }
+        }
+
         em {
           padding: 0 0.8rem;
           line-height: 2.68rem;
@@ -191,6 +322,9 @@ body {
           color: #9B9B9B;
           font-weight: 400;
           font-style: normal;
+          @include responsive(phone) {
+            font-size: .85rem;
+          }
         }
         span {
           padding: 0.68rem 0.62rem;
@@ -200,6 +334,9 @@ body {
           font-weight: 400;
           background-color: #F6F6F6;
           border-left: 1px solid #EDEDED;
+          @include responsive(phone) {
+            font-size: .85rem;
+          }
         }
       }
     }
@@ -207,28 +344,38 @@ body {
 
   .experience {
     /*EXPERIENCE CONTAINER*/
+    //position:relative;
     display: block;
     height: 100%;
+    @include responsive(phone) {
+      display: block;
+      height: auto;
+    }
     h2 {
-      font-weight: 200;
-      font-size: 1.5rem;
-      border-top: 1px solid #D9DBDD;
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
+      @extend %h2;
+      @include responsive(phone) {
+        font-size: 1.3rem;
+      }
     }
     h3 {
-      font-weight: 200;
-      padding: 1rem 0 0.3rem 0;
-      color: #484848;
+      @extend %h3;
+      @include responsive(phone) {
+        font-size: 1.2rem;
+      }
     }
     h4 i{
-      font-size: 0.8rem;
-      padding: 0 0.5rem;
-      color: #9B9B9B;
+      @extend %h4i;
+      @include responsive(phone) {
+        font-size: 1.1rem;
+      }
     }
     p {
       font-weight: lighter;
       text-align: left;
+      @include responsive(phone) {
+        font-size: .85rem;
+        line-height: 1rem;
+      }
     }
   }
 
@@ -236,22 +383,27 @@ body {
     /*EDUCATION CONTAINER*/
     display: block;
     height: 100%;
+    @include responsive(phone) {
+      display: block;
+      height: auto;
+    }
     h2{
-      font-weight: 200;
-      font-size: 1.5rem;
-      border-top: 1px solid #D9DBDD;
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
+      @extend %h2;
+      @include responsive(phone) {
+        font-size: 1.3rem;
+      }
     }
     h3 {
-      font-weight: 200;
-      padding: 1rem 0 0.3rem 0;
-      color: #484848;
+      @extend %h3;
+      @include responsive(phone) {
+        font-size: 1.2rem;
+      }
     }
     h4 i {
-      font-size: 0.8rem;
-      padding: 0 0.5rem;
-      color: #9B9B9B;
+      @extend %h4i;
+      @include responsive(phone) {
+        font-size: 1.1rem;
+      }
     }
   }
 
@@ -260,12 +412,12 @@ body {
     display: block;
     height: 100%;
     h2{
-      font-weight: 200;
-      font-size: 1.5rem;
-      border-top: 1px solid #D9DBDD;
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
+      @extend %h2;
+      @include responsive(phone) {
+        font-size: 1.3rem;
+      }
     }
+
     ul {
       list-style: none;
       padding: 0;
@@ -295,7 +447,7 @@ body {
       }
     }
   }
-}
+
 
 /*SOCIAL MEDIA CONTAINER*/
 .social_media {
@@ -306,10 +458,20 @@ body {
   height: 3.5rem;
   background-color: #F1F1F1;
   padding: 0rem 1.875rem;
+  @include responsive(phone) {
+    width: 18.59rem;
+    height: 2.5rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
   p {
     display: inline-block;
     color: #000;
     font-size: 0.8rem;
+    @include responsive(phone) {
+      display: none;
+    }
   }
   a {
     color: #9B9B9B;
@@ -317,6 +479,12 @@ body {
     float: right;
     margin-top: 1rem;
     margin-left: 1rem;
+    @include responsive(phone) {
+      font-size: 1rem;
+      margin-right: 1rem;
+      margin-top: .7rem;
+      float: none;
+    }
     &:hover {
       color: #000;
       transition: color 0.3s;
